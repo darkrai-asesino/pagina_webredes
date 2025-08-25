@@ -1,0 +1,202 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;600&family=Poppins:wght@300;500;700&display=swap');
+
+
+:root{
+  --primary:#004481;
+  --primary-2:#006bb3;
+  --bg:#f0f2f5;
+  --text:#333;
+
+  --panel:#ffffff;
+  --panel-shadow:0 4px 12px rgba(0,0,0,.08);
+
+  --gold:#d4af37;
+  --gold-soft:#fff7d6;
+
+  --yellow:#f4d03f;
+  --yellow-soft:#fff4cc;
+
+  --red:#e74c3c;
+  --red-soft:#ffe1e1;
+
+  --muted:#666;
+  --line:#e6e6e6;
+}
+
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  font-family:'Poppins',sans-serif;
+  color:var(--text);
+  background:var(--bg);
+  line-height:1.6;
+}
+img{max-width:100%;display:inline-block}
+
+
+.container{
+  max-width:1000px;
+  margin:0 auto;
+  padding:0 20px;
+}
+
+
+.header{
+  background:linear-gradient(135deg,var(--primary),var(--primary-2));
+  color:#fff;
+  padding:2.5rem 0;
+  text-align:center;
+  box-shadow:0 4px 10px rgba(0,0,0,.2);
+}
+.header h1{
+  margin:0;
+  font-size:2.8rem;
+  font-family:'Oswald',sans-serif;
+  letter-spacing:.5px;
+}
+.header p{margin:.5rem 0 0;opacity:.9}
+
+.main-nav{margin-top:20px}
+.main-nav ul{
+  list-style:none;margin:0;padding:0;
+  display:flex;flex-wrap:wrap;justify-content:center;gap:12px
+}
+.main-nav a{
+  display:inline-block;
+  color:#fff;text-decoration:none;font-weight:700;
+  padding:10px 18px;border-radius:999px;
+  background:rgba(255,255,255,.12);
+  transition:transform .2s ease,background .25s ease,color .25s ease;
+}
+.main-nav a:hover{background:#fff;color:var(--primary);transform:translateY(-1px)}
+
+
+
+.results-section,.standings-section,.calendario-section{
+  background:var(--panel);
+  margin-top:2rem;padding:2rem;border-radius:14px;
+  box-shadow:var(--panel-shadow);
+}
+h2{
+  margin:0 0 .75rem;
+  color:var(--primary);
+  font-family:'Oswald',sans-serif;
+  border-bottom:3px solid var(--primary);
+  padding-bottom:10px;letter-spacing:.4px;
+}
+
+
+.table-container{overflow-x:auto}
+.table-container::-webkit-scrollbar{height:10px}
+.table-container::-webkit-scrollbar-thumb{background:#d1d5db;border-radius:999px}
+.table-container::-webkit-scrollbar-track{background:#f3f4f6}
+
+table{width:100%;border-collapse:collapse;margin-top:1rem}
+th,td{padding:14px 18px;text-align:left;border-bottom:1px solid var(--line)}
+thead tr{
+  background:var(--primary);
+  color:#fff;text-transform:uppercase;letter-spacing:.5px
+}
+tbody tr{transition:background .25s ease}
+tbody tr:hover{background:#f9fafc}
+.score{font-weight:700;text-align:center;color:var(--primary);font-size:1.1rem}
+
+
+.team-logo{
+  width:24px;height:24px;object-fit:contain;
+  vertical-align:middle;margin-right:8px
+}
+
+
+.standings-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:18px;margin-top:1.25rem
+}
+.team-card{
+  background:#f8f9fa;border:1px solid #e7e7e7;border-radius:12px;
+  padding:18px;text-align:center;
+  transition:transform .22s ease,box-shadow .22s ease
+}
+.team-card:hover{transform:translateY(-6px);box-shadow:0 8px 16px rgba(0,0,0,.12)}
+.team-card h3{
+  margin:0 0 .35rem;color:var(--primary);
+  display:flex;align-items:center;justify-content:center;gap:8px;
+  font-family:'Oswald',sans-serif
+}
+.team-card .team-logo{width:28px;height:28px;margin-right:0}
+.disclaimer{
+  text-align:center;color:var(--muted);font-size:.92rem;margin-top:1.25rem;font-style:italic
+}
+
+#goleadores h2{
+  border-color:var(--gold);
+  color:var(--primary);
+}
+#goleadores thead tr{
+  background:linear-gradient(90deg,var(--gold),#f2cf66);
+  color:#2b2b2b;
+}
+#goleadores tbody tr:first-child{
+  background:var(--gold-soft);
+  position:relative;
+  box-shadow:inset 4px 0 0 0 var(--gold);
+}
+#goleadores tbody tr:first-child td:first-child{
+  font-weight:700;
+}
+#goleadores tbody tr:first-child td:first-child::before{
+  content:"👑 ";
+}
+#goleadores td:nth-child(3){ 
+  font-weight:700;
+}
+#goleadores td:nth-child(4){ 
+  font-weight:600;opacity:.95;
+}
+
+#disciplinas h2{
+  border-color:var(--red);
+}
+#disciplinas thead tr{
+  background:linear-gradient(90deg,var(--yellow),var(--red));
+  color:#2b2b2b;
+}
+#disciplinas td:nth-child(3){ 
+  background:var(--yellow-soft);
+  font-weight:700;
+  text-align:center;
+  border-radius:8px;
+}
+#disciplinas td:nth-child(4){ 
+  background:var(--red-soft);
+  font-weight:700;
+  text-align:center;
+  border-radius:8px;
+}
+#disciplinas thead th:nth-child(3)::after{content:" 🟨"}
+#disciplinas thead th:nth-child(4)::after{content:" 🟥"}
+
+
+.footer{
+  background:var(--primary);
+  color:#fff;text-align:center;padding:1.5rem 0;margin-top:2rem;font-size:.95rem
+}
+
+
+:focus-visible{
+  outline:3px solid #99c3ff;outline-offset:2px;border-radius:6px
+}
+@media (prefers-reduced-motion:reduce){
+  *{transition:none !important;animation:none !important}
+}
+
+@media (max-width:600px){
+  .header h1{font-size:2rem}
+  .main-nav ul{flex-direction:column;gap:10px}
+  th,td{padding:11px 12px}
+  .team-logo{width:22px;height:22px}
+}
